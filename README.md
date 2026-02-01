@@ -1,0 +1,2 @@
+# taskflow-ai
+🚀 AI-Powered Todo App with Next.js 14, FastAPI & Gemini 2.0. Features natural language tasks, MCP agents, and a premium glassmorphism UI. Hackathon Phase 3 Complete.
