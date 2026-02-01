@@ -5,7 +5,13 @@ from sqlmodel import Session
 import os
 import json
 from openai import OpenAI
-import google.generativeai as genai
+try:
+    import google.generativeai as genai
+    HAS_GEMINI = True
+except Exception as e:
+    print(f"⚠️ Google Gemini Import Failed: {e}")
+    genai = None
+    HAS_GEMINI = False
 
 from database.session import get_session
 from models.task import TaskCreate, TaskUpdate
@@ -417,6 +423,9 @@ def call_google_direct(messages, tools, system_instruction):
     """
     api_key = os.getenv("GOOGLE_API_KEY")
     if not api_key: raise Exception("No Google API Key found.")
+
+    if not HAS_GEMINI or not genai:
+        raise Exception("Google Gemini SDK is not available (Import Failed).")
 
     genai.configure(api_key=api_key)
     
