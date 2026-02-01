@@ -1,0 +1,36 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/index.py",
+      "use": "@vercel/python"
+    },
+    {
+      "src": "web-app/package.json",
+      "use": "@vercel/next"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "api/index.py"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "web-app/$1"
+    }
+  ],
+  "env": {
+    "DATABASE_URL": "@database_url",
+    "OPENROUTER_API_KEY": "@openrouter_api_key",
+    "GOOGLE_API_KEY": "@google_api_key",
+    "BETTER_AUTH_SECRET": "@better_auth_secret",
+    "BETTER_AUTH_URL": "@better_auth_url"
+  },
+  "build": {
+    "env": {
+      "NEXT_PUBLIC_API_URL": "",
+      "NEXT_PUBLIC_BETTER_AUTH_URL": "@better_auth_url"
+    }
+  }
+}
