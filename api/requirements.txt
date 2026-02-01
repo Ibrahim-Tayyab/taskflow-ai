@@ -15,7 +15,7 @@ email-validator
 sqlalchemy
 openai
 mcp
-google-generativeai
+# google-generativeai
 requests
 httpx
 psycopg[binary]

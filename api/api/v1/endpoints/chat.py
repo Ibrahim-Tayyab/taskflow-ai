@@ -5,13 +5,14 @@ from sqlmodel import Session
 import os
 import json
 from openai import OpenAI
-try:
-    import google.generativeai as genai
-    HAS_GEMINI = True
-except Exception as e:
-    print(f"⚠️ Google Gemini Import Failed: {e}")
-    genai = None
-    HAS_GEMINI = False
+# try:
+#     import google.generativeai as genai
+#     HAS_GEMINI = True
+# except Exception as e:
+#     print(f"⚠️ Google Gemini Import Failed: {e}")
+#     genai = None
+HAS_GEMINI = False
+genai = None
 
 from database.session import get_session
 from models.task import TaskCreate, TaskUpdate
