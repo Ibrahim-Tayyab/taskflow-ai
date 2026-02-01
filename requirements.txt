@@ -1,21 +1,29 @@
 fastapi
 uvicorn[standard]
-sqlmodel
+# Core
+fastapi
 pydantic
+pydantic-settings
+sqlmodel
+uvicorn
 python-dotenv
 alembic
+
+# Database
 psycopg2-binary
-psycopg
+
+# Auth & Security
 passlib[bcrypt]
 python-jose[cryptography]
 python-multipart
 bcrypt
-pydantic-settings
 email-validator
-sqlalchemy
+
+# AI & Tools
 openai
-mcp
-# google-generativeai
 requests
 httpx
-psycopg[binary]
+
+# Removed to prevent Vercel crashes
+# google-generativeai
+# mcp

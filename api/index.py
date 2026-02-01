@@ -71,4 +71,5 @@ def root():
 
 
 # Vercel serverless handler
-handler = app
+# Vercel needs a variable named 'app' or 'handler' that is an ASGI app
+# handler = app
