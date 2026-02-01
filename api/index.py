@@ -17,6 +17,7 @@ else:
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from contextlib import asynccontextmanager
 from api.v1.endpoints import tasks, auth, chat, conversations
 from core.config import settings
 
